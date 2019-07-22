@@ -3,21 +3,21 @@ import numpy as np
 
 cap = cv2.VideoCapture(0)
 
-# green = np.uint8([[[0, 127, 0]]])
-# red = np.uint8([[[127, 0, 0]]])
-# blue = np.uint8([[[0, 0, 127]]])
+green = np.uint8([[[0, 128, 0]]])
+red = np.uint8([[[0, 0, 128]]])
+blue = np.uint8([[[128, 0, 0]]])
 
-# print("green: ", cv2.cvtColor(green, cv2.COLOR_BGR2HSV))
-# print("red: ", cv2.cvtColor(red, cv2.COLOR_BGR2HSV))
-# print("blue: ", cv2.cvtColor(blue, cv2.COLOR_BGR2HSV))
+print("green: ", cv2.cvtColor(green, cv2.COLOR_BGR2HSV))
+print("red: ", cv2.cvtColor(red, cv2.COLOR_BGR2HSV))
+print("blue: ", cv2.cvtColor(blue, cv2.COLOR_BGR2HSV))
 
-green_lower = [130, 50, 100]
-red_lower = [0, 50, 100]
-blue_lower = [230, 50, 100]
+green_lower = [50, 100, 100]
+red_lower = [0, 127, 127]
+blue_lower = [100, 127, 127]
 
-green_upper = [110, 100, 100]
-red_upper = [10, 100, 100]
-blue_upper = [250, 100, 100]
+green_upper = [70, 255, 255]
+red_upper = [20, 255, 255]
+blue_upper = [120, 255, 255]
 
 
 while 1:
@@ -25,8 +25,8 @@ while 1:
     hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 
     # define range of blue color in HSV
-    lower_blue = np.array(blue_lower)
-    upper_blue = np.array(blue_upper)
+    lower_blue = np.array(green_lower)
+    upper_blue = np.array(green_upper)
 
     # define range of red color in HSV
     lower_red = np.array(red_lower)
